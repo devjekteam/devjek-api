@@ -5,6 +5,7 @@ psql -p $PORT -c 'drop database devjektest;'
 psql -p $PORT -c 'create database devjektest;'
 
 export DB_URI=postgresql://localhost:$PORT/devjektest
+export APP_ENV=test
 
 python manage.py db upgrade
 

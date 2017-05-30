@@ -76,4 +76,20 @@ If things get super jacked up and alembic doesn't let you downgrade you can alwa
 
 ### Tests
 
-TBD
+Entire Test Suite
+```
+./tests.sh
+```
+
+Single Test
+```
+./tests unit_tests/<test_file>.py
+```
+
+### Production
+
+You will need to set some env variables for Production
+
+```
+APP_ENV=production
+```

@@ -78,7 +78,8 @@ class OrdersTests(unittest.TestCase):
 
             self.assertEqual(result.status_code, 400)
 
-    def test_post_create_new_order(self):
+    @patch('webapp.routes.orders.send_new_order_email', return_value=True)
+    def test_post_create_new_order(self, mock_sparkpost):
         with app.app_context():
             json_payload = dict(
                 name="test man dude",
@@ -101,7 +102,8 @@ class OrdersTests(unittest.TestCase):
             self.assertEqual(result_dict['number_of_days'], json_payload["number_of_days"])
             self.assertEqual(result_dict['number_of_pages'], json_payload["number_of_pages"])
 
-    def test_post_create_new_order_bad_params(self):
+    @patch('webapp.routes.orders.send_new_order_email', return_value={})
+    def test_post_create_new_order_bad_params(self, mock_sparkpost):
         with app.app_context():
             json_payload = {
                 "not-name": "test"

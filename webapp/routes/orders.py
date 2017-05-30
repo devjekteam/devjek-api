@@ -4,6 +4,7 @@ from flask.views import MethodView
 # local
 from .decorators import required_params
 from webapp.model import db, Orders
+from webapp.integrations.sparkpost import send_new_order_email
 
 
 def register_orders_routes(blueprint):
@@ -54,7 +55,8 @@ class OrdersRoutes(MethodView):
         db.session.add(order)
         db.session.commit()
 
-        # TODO send emails to us
+        # send us an email about new order
+        send_new_order_email(order)
 
         return jsonify(order.as_json()), 201
 
