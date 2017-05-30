@@ -7,7 +7,7 @@ Functions very similarly to Consultation Kit. Uses Python 3.5 and Postgresql
 - ***run.py*** entry point to start the API
 - ***manage.py*** Alembic auto migration code (see Migrations Section)
 - ***webapp/*** contains source code for app
-- ***webapp/routes*** contains api routes and (View Functions)[http://flask.pocoo.org/docs/0.12/blueprints/]
+- ***webapp/routes*** contains api routes and [View Functions](http://flask.pocoo.org/docs/0.12/blueprints/)
 - ***webapp/routes/__init__.py*** contains base blueprint and initializes routes
 - ***webapp/model.py*** contains SQLAlchemy models that talk to db (postgresql). Alembic can run automatic migrations based on changes in this file. (see Migrations section)
 - ***webapp/app.py*** contains app factory function that creates instance of this API
@@ -18,15 +18,15 @@ Functions very similarly to Consultation Kit. Uses Python 3.5 and Postgresql
 - Set up virtual environment (highly recommended)
 
 ```
->> pip install virtualenv
->> virtualenv --python=<PATH TO PYTHON BINARY>(e.g. /usr/local/bin/python3.5) .venv
->> source .venv/bin/activate
+pip install virtualenv
+virtualenv --python=<PATH TO PYTHON BINARY>(e.g. /usr/local/bin/python3.5) .venv
+source .venv/bin/activate
 ```
 
 - Install dependencies
 
 ```
->> pip install -r requirements.txt
+pip install -r requirements.txt
 ```
 
 - Create a postgresql db for your API. Either create an environment variable `SQLALCHEMY_DATABASE_URI` that has the name of your DB or just make it named `devjekdev` and the app will find it.
