@@ -4,7 +4,7 @@ from flask import Flask, request
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 
-from .routes import api
+from webapp.routes import api
 from webapp.db import db
 
 migrate = Migrate()
